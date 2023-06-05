@@ -1,0 +1,49 @@
+<nav class="fh5co-nav" role="navigation">
+<div class="top">
+			<div class="container">
+				<div class="row">
+
+				</div>
+			</div>
+		</div>
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href=" {% static 'index.html' %}"><i class="icon-study"></i>Educ<span>.</span></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href=" {% static 'index.html' %}">Home</a></li>
+
+
+
+							<li class="has-dropdown">
+								<a href=" {% static 'blog.html">Department</a>
+								<ul class="dropdown">
+									<li><a href=" https://en.wikipedia.org/wiki/Computer_science">Computer Science</a></li>
+									<li><a href=" https://en.wikipedia.org/wiki/Bachelor_of_Commerce">Commerce</a></li>
+									<li><a href=" https://en.wikipedia.org/wiki/Master_of_Business_Administration">Management</a></li>
+									<li><a href="   https://en.wikipedia.org/wiki/Chemistry">Chemistry</a></li>
+									<li><a href=" https://en.wikipedia.org/wiki/Physics">Physics</a></li>
+
+
+								</ul>
+							</li>
+							<li><a href=" {% static 'contact.html">Contact</a></li>
+							{% if user.is_authenticated %}
+							<li>Hello {{user.username}} </li>
+							<li class="btn-danger "><a href="logout"><span>Logout</span></a></li>
+							{% else %}
+							<li class="btn-cta"><a href="login"><span>Login</span></a></li>
+							<li class="btn-cta"><a href=" register"><span>Register</span></a></li>
+							{% endif %}
+
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	

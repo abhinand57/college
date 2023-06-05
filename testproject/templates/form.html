@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+ .card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+<!--              <form action="/" method="post"></form>-->
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Student registration form</h3>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1m">First name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1n">Last name</label>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example8">Address</label>
+                </div>
+
+
+
+
+                  <div class="form-outline mb-4">
+                  <input type="text" id="form3Example97" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example97">Email ID</label>
+                </div>
+
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                  <h6 class="mb-0 me-4">Gender: </h6>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                      value="option1" />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                      value="option2" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                      value="option3" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div>
+
+
+                 <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form32Example1m" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1m">DOB</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="form31Example1n" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1n">Age</label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example90" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example90">Phone Number</label>
+                </div>
+
+
+
+
+
+<div class="row">
+<div class="col-md-6 mb-4">
+
+<select id="country">
+    <option value="">Select Department</option>
+    <option value="cs">Computer Science</option>
+    <option value="man">Management</option>
+    <option value="com">Commerce</option>
+    <option value="che">Chemistry</option>
+    <option value="phy">physics</option>
+</select>
+</div>
+<div class="col-md-6 mb-4">
+<select id="city">
+  <option value="">Select a Course</option>
+  </select>
+
+</div>
+</div>
+  <script>
+    // Define the city options for each country
+    const citiesByCountry = {
+      cs: ['Bsc Computer Science', 'BCA', 'MCA'],
+      man: ['BBA', 'BBA TTM', 'MBA'],
+      com: ['Bcom', 'Bcom CA ', 'Mcom'],
+      che: ['Bsc Chemistry', 'Msc chemistry'],
+      phy: ['Bsc Physics', 'Msc Physics'],
+
+
+
+    };
+
+    // Function to populate the city dropdown based on the selected country
+    function populateCityDropdown() {
+      const selectedCountry = $('#country').val();
+      const cities = citiesByCountry[selectedCountry];
+      const cityDropdown = $('#city');
+
+      // Clear existing options
+      cityDropdown.empty();
+
+      // Add new options
+      if (cities) {
+        cities.forEach(city => {
+          const option = $('<option></option>').text(city);
+          cityDropdown.append(option);
+        });
+      } else {
+        const option = $('<option></option>').text('No cities available');
+        cityDropdown.append(option);
+      }
+    }
+
+    // Bind the populateCityDropdown function to the change event of the country dropdown
+    $('#country').on('change', populateCityDropdown);
+  </script>
+
+
+
+                <div>
+                    <select class="select">
+                      <option value="1">Purpose</option>
+                      <option value="2"> Enquiry</option>
+                      <option value="3">Place order</option>
+                      <option value="4">Return</option>
+
+
+                    </select>
+
+                  </div>
+
+
+                <div class="d-flex justify-content-end pt-3">
+                  <a href="/"  class="btn btn-warning btn-lg ms-2">Submit form</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+</html>
